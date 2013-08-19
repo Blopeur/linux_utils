@@ -6,9 +6,6 @@ set t_Co=256
 set noruler
 set laststatus=2
 
-" Color theme 
-let g:molokai_original = 1
-set background=dark
 
 " Ctags 
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
