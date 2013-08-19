@@ -1,0 +1,25 @@
+""""""""""""""""""""""""""""""""
+Devlopment Log
+""""""""""""""""""""""""""""""""
+
+********************************
+To Checkout 
+********************************
+
+RCU skip list -> move all Heca space and Heca process to skip list rather than radix tree 
+http://lwn.net/Articles/551896/
+
+Queued Read Write lock -> Might be better in certain situatio in Heca rather than standard lock or RW lock.
+http://lwn.net/Articles/558867/
+
+
+
+*******************************
+TODO 
+*******************************
+
+=> Move Heca Space and Proces to RCU skip list:
+	Low write - modification ratio vs Read -> allow faster lookup  due to lockless behavior as well as less space wasted. 
+
+ 
+
