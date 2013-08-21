@@ -18,8 +18,45 @@ http://lwn.net/Articles/558867/
 TODO 
 *******************************
 
-=> Move Heca Space and Proces to RCU skip list:
+=> Evaluate the move Heca Space and Proces to RCU skip list from radix tree :
 	Low write - modification ratio vs Read -> allow faster lookup  due to lockless behavior as well as less space wasted. 
+	Is it worth it, the radix tree might provide a better structure for grabing structure and refcounting ?
 
- 
+=> Clean up and refactor the surrogate code when we delete hprocs , its really messy and not 100% sure it works well
+
+=> Cleanup the heca connection manager code to handle all teh error 
+
+=> add multi RDMA NIC support 
+
+
+=> Move all the Heca space - Heca Process - Heca State - MR into Kobjects 
+	This will also allow us to support the hotplug event 
+
+=> Split Memory Hooks - Connection manager and Memory Management in different modules 
+
+*******************************
+CODE Comments
+*******************************
+
+20/08/2013
+
+base.c :  
+
+ Heca Connection : RB tree + sequential lock => we need to check how many time we do the lookup and maybe swith to a lockless DT .. => thisis definitly a use case for skip list ! 
+
+ Heca Space : Radix Tree + rcu => evaluate if skip list make more sense .. Not rcu radix tree allow concurrent lockless read but single writer... 
+
+the surrogate push pull for freeing hproc is messy, this need to be cleaned up  
+
+
+
+**********************************
+Out of order
+**********************************
+
+
+_ Checkout the congestion code
+
+_ Heca hooks teh detach task and attach code needs to  be reviewed 
+
 
