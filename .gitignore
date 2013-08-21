@@ -33,7 +33,8 @@ modules.builtin
 *.lzo
 *.patch
 *.gcno
-
+.*.swp
+*.swp
 #
 # Top-level generic files
 #
