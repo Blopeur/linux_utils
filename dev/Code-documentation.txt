@@ -1,0 +1,20 @@
+"""""""""""""""""""""""""""""""""""""
+Code Comment - doc
+"""""""""""""""""""""""""""""""""""""
+
+
+*************************************
+Key data structures
+*************************************
+
+Heca connections :
+	Search DT : Red Black tree
+	Lock :	Seq Lock
+
+Heca space : 
+	Search DT: Radix tree
+	Lock : RCU  -> lockless search 
+
+Heca MR : 
+	We have a Radix tree and a RB tree with seq lock 
+	=> Replacing everythign with a single skip list ? 
