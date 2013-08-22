@@ -19,3 +19,8 @@ map <F9> :NERDTreeToggle<CR>
 " Airline
 let g:airline_enable_branch = 1
 let g:airline_branch_empty_message = 'NoGit'
+
+"conqueterm
+let g:ConqueTerm_Color = 1
+
+
