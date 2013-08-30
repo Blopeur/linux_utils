@@ -46,7 +46,11 @@ base.c :
 
  Heca Space : Radix Tree + rcu => evaluate if skip list make more sense .. Not rcu radix tree allow concurrent lockless read but single writer... 
 
-the surrogate push pull for freeing hproc is messy, this need to be cleaned up  
+the surrogate push pull for freeing hproc is messy, this need to be cleaned up 
+
+27/08/2013
+
+destroy_hcm_listener : we destroy the HCM even if we have hspace left.. need to be fixed ..  
 
 
 
