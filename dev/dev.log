@@ -53,6 +53,10 @@ the surrogate push pull for freeing hproc is messy, this need to be cleaned up
 destroy_hcm_listener : we destroy the HCM even if we have hspace left.. need to be fixed ..  
 
 
+30/08/2013
+
+conn.c : line 1749 - remove_hprocs_from_conn : we need to maybe teardown teh hspace and also make sure we cleanup properly under mutex 
+
 
 **********************************
 Out of order
