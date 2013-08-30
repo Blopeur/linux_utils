@@ -23,4 +23,5 @@ let g:airline_branch_empty_message = 'NoGit'
 "conqueterm
 let g:ConqueTerm_Color = 1
 
-
+"automatically remove white space
+autocmd FileType c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
