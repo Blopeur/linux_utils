@@ -1,3 +1,5 @@
 [user]
 	name = Benoit Hudzia
 	email = benoit.hudzia@gmail.com
+[core]
+	editor = vim
