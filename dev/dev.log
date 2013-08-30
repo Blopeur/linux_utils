@@ -63,4 +63,5 @@ _ Checkout the congestion code
 
 _ Heca hooks teh detach task and attach code needs to  be reviewed 
 
+_ check if we have disconnection and tear down of hproc at the same time => we might have a race condition on the teardown side there ( work from hmr up... we might need to introduce lock there) 
 
