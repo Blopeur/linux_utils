@@ -57,6 +57,11 @@ destroy_hcm_listener : we destroy the HCM even if we have hspace left.. need to 
 
 conn.c : line 1749 - remove_hprocs_from_conn : we need to maybe teardown teh hspace and also make sure we cleanup properly under mutex 
 
+01/09/2013 
+stuct.c : heca page get ( line 344 ) => use krefs rather than the custom implementation 
+move the descriptor variable within the Heca module state 
+
+
 
 **********************************
 Out of order
@@ -68,4 +73,6 @@ _ Checkout the congestion code
 _ Heca hooks teh detach task and attach code needs to  be reviewed 
 
 _ check if we have disconnection and tear down of hproc at the same time => we might have a race condition on the teardown side there ( work from hmr up... we might need to introduce lock there) 
+
+_ do we need to move the hrpoc refecount to per MR refcount ? 
 
