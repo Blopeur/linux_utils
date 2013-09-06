@@ -74,5 +74,5 @@ _ Heca hooks teh detach task and attach code needs to  be reviewed
 
 _ check if we have disconnection and tear down of hproc at the same time => we might have a race condition on the teardown side there ( work from hmr up... we might need to introduce lock there) 
 
-_ do we need to move the hrpoc refecount to per MR refcount ? 
+_ do we need to move the hrpoc refcount to per MR refcount ? 
 
