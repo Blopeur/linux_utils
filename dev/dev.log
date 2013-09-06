@@ -76,3 +76,16 @@ _ check if we have disconnection and tear down of hproc at the same time => we m
 
 _ do we need to move the hrpoc refecount to per MR refcount ? 
 
+
+*********************************
+BUG!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+******************************
+
+ops.c-530-                goto fail;
+ops.c-531-
+ops.c:532:        mr = find_heca_mr(hproc, msg->req_addr);
+ops.c-533-        if (!mr)
+ops.c-534-                goto fail;
+
+we cannot use msg->req_addr , we need to use mr id normally 
+
