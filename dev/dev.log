@@ -28,10 +28,6 @@ TODO
 
 => add multi RDMA NIC support 
 
-
-=> Move all the Heca space - Heca Process - Heca State - MR into Kobjects 
-	This will also allow us to support the hotplug event 
-
 => Split Memory Hooks - Connection manager and Memory Management in different modules 
 
 *******************************
@@ -42,7 +38,6 @@ CODE Comments
 
 base.c :  
 
- Heca Connection : RB tree + sequential lock => we need to check how many time we do the lookup and maybe swith to a lockless DT .. => thisis definitly a use case for skip list ! 
 
  Heca Space : Radix Tree + rcu => evaluate if skip list make more sense .. Not rcu radix tree allow concurrent lockless read but single writer... 
 
@@ -53,14 +48,14 @@ the surrogate push pull for freeing hproc is messy, this need to be cleaned up
 destroy_hcm_listener : we destroy the HCM even if we have hspace left.. need to be fixed ..  
 
 
-30/08/2013
 
-conn.c : line 1749 - remove_hprocs_from_conn : we need to maybe teardown teh hspace and also make sure we cleanup properly under mutex 
 
 01/09/2013 
 stuct.c : heca page get ( line 344 ) => use krefs rather than the custom implementation 
 move the descriptor variable within the Heca module state 
 
+09/09/13
+in hproc.c => release_local_hproc => we need to protect the connection release scan 
 
 
 **********************************
@@ -81,11 +76,4 @@ _ do we need to move the hrpoc refcount to per MR refcount ?
 BUG!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ******************************
 
-ops.c-530-                goto fail;
-ops.c-531-
-ops.c:532:        mr = find_heca_mr(hproc, msg->req_addr);
-ops.c-533-        if (!mr)
-ops.c-534-                goto fail;
-
-we cannot use msg->req_addr , we need to use mr id normally 
 
