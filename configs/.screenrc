@@ -2,7 +2,7 @@
 startup_message off
 
 #force laoding the bashrc 
-shell -$SHELL
+#shell -$SHELL
 
 # Autodetach session on hangup instead of terminating screen completely
 autodetach on
