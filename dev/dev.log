@@ -57,6 +57,10 @@ move the descriptor variable within the Heca module state
 09/09/13
 in hproc.c => release_local_hproc => we need to protect the connection release scan 
 
+10/09/13
+
+Connection : for hproc setup etc.. so far the connection establishment is tied to to hproc, we might want to separate that. also the cleanup is not working well , i am not sure we clen all the datastructure. 
+
 
 **********************************
 Out of order
