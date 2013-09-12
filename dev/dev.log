@@ -65,6 +65,12 @@ mr.c : create_heca_mr: we use a function to find the first local hproc , but we 
 
 ops.c: process_pull_request : check the hproc - hspace release etc..
 
+12/09/13
+
+ops.c: heca retry claim: we grab a remote hproc but i cannot figure out wher we do the put ... probably missing need to check when awake 
+
+we need to do the get put within the same function!!! not have these in separate one which makes it hard to track exactly who is doing what...
+
 
 **********************************
 Out of order
