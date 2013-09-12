@@ -48,8 +48,6 @@ the surrogate push pull for freeing hproc is messy, this need to be cleaned up
 destroy_hcm_listener : we destroy the HCM even if we have hspace left.. need to be fixed ..  
 
 
-
-
 01/09/2013 
 stuct.c : heca page get ( line 344 ) => use krefs rather than the custom implementation 
 move the descriptor variable within the Heca module state 
@@ -60,6 +58,12 @@ in hproc.c => release_local_hproc => we need to protect the connection release s
 10/09/13
 
 Connection : for hproc setup etc.. so far the connection establishment is tied to to hproc, we might want to separate that. also the cleanup is not working well , i am not sure we clen all the datastructure. 
+
+11/09/13
+
+mr.c : create_heca_mr: we use a function to find the first local hproc , but we will need to make sure we do a get for it... 
+
+ops.c: process_pull_request : check the hproc - hspace release etc..
 
 
 **********************************
