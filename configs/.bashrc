@@ -110,11 +110,6 @@ fi
 #Custom 
 #
 
-# scripts path 
-if [ -d "$HOME/scripts" ] ; then
-   PATH="$PATH:$HOME/scripts"
-fi
-
 # History autocompletion 
 case "$TERM" in xterm*|rxvt*)
     bind '"\e[A":history-search-backward'
@@ -125,4 +120,7 @@ esac
 # remove the ctrl-s stop 
 stty stop ''
 
-
+# start tmux automatically
+if [ `which tmux 2> /dev/null` -a -z "$TMUX" ]; then
+	    tmux -2 attach || tmux -2 new; exit
+fi
